@@ -133,3 +133,257 @@ ActionController::UnknownAction (No action responded to index. Actions: create, 
   
 
 Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardsController#index (for 127.0.0.1 at 2009-12-12 16:01:29) [GET]
+Rendering dashboards/index
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardsController#index (for 127.0.0.1 at 2009-12-12 16:02:27) [GET]
+Rendering dashboards/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardsController#index (for 127.0.0.1 at 2009-12-12 16:07:17) [GET]
+Rendering template within layouts/application
+Rendering dashboards/index
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0xb678a580>) on line #13 of app/views/layouts/application.html.erb:
+10: <body>
+11: 
+12: <div id="user_nav">
+13:   <% if current_user %>
+14:     <%= link_to "Edit Profile", edit_user_path(:current) %> |
+15:     <%= link_to "Logout", logout_path %>
+16:   <% else %>
+
+    app/views/layouts/application.html.erb:13
+
+Rendered rescues/_trace (38.3ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardsController#index (for 127.0.0.1 at 2009-12-12 16:07:51) [GET]
+Rendering template within layouts/application
+Rendering dashboards/index
+Completed in 27ms (View: 25, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-12 16:07:55) [GET]
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (61.0ms)
+Completed in 79ms (View: 70, DB: 1) | 200 OK [http://localhost/users/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-12 16:08:04) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 22ms (View: 9, DB: 1) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-12 16:08:06) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (5.6ms)
+Completed in 18ms (View: 7, DB: 1) | 200 OK [http://localhost/users/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-12 16:09:20) [GET]
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (6.3ms)
+Completed in 23ms (View: 13, DB: 1) | 200 OK [http://localhost/users/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-12 16:09:51) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA=", "user"=>{"password_confirmation"=>"456789", "username"=>"test_02", "password"=>"123456", "email"=>"test_02@test.com"}}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+WARNING: Can't mass-assign these protected attributes: password_confirmation
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'test_02@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'test_02') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '8a2aa1bce1c852faa3fb04f93721b9fc85ffa9eb0b7183d8d57cfe206f714f5134c435e030c68c693b47f27a4e7949d8c3ca82645e92c9ebef12afb1602ea458') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (7.6ms)
+Completed in 174ms (View: 10, DB: 2) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-12 16:09:58) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA=", "user"=>{"password_confirmation"=>"123456", "username"=>"test_02", "password"=>"123456", "email"=>"test_02@test.com"}}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+WARNING: Can't mass-assign these protected attributes: password_confirmation
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'test_02@test.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'test_02') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '1f854765e069542f23df47e138264627dfdb4b2536b1398ce35ebea66d56906ac8dbe9dcdad0ecd0a63fceafa24b68b6271538d2faeda37a39405576d2b2664f') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (6.7ms)
+Completed in 27ms (View: 8, DB: 2) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-12 16:10:01) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, and update):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-12 16:10:05) [GET]
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (4.7ms)
+Completed in 15ms (View: 6, DB: 1) | 200 OK [http://localhost/users/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-12 16:10:21) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA=", "user"=>{"password_confirmation"=>"123456", "username"=>"test_02", "password"=>"123456", "email"=>"test_02@test.com"}}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+WARNING: Can't mass-assign these protected attributes: password_confirmation
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'test_02@test.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'test_02') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b572b28b9f438ea4574bd7ee26cb4aff283b1cf1f65c057945c6f5dab9d10e900b2afa1a74e2ce9394e2f1d6075d9026762d0ca317f189531d2aeb2e3950ce0b') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (6.0ms)
+Completed in 23ms (View: 7, DB: 2) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-12 16:10:32) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA=", "user"=>{"password_confirmation"=>"123456", "username"=>"test_02", "password"=>"123456", "email"=>"test_02@test.com"}}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+WARNING: Can't mass-assign these protected attributes: password_confirmation
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'test_02@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'test_02') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '1f603aa37400c16a6f2ae5ff47c035217830d25e80387d0b24e7afbb8f62544c56d67d937b9e5768047cb4b86bc52d15ce7abe024910927ef2cdea132497537f') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (7.3ms)
+Completed in 32ms (View: 9, DB: 2) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardsController#index (for 127.0.0.1 at 2009-12-12 16:11:10) [GET]
+Rendering template within layouts/application
+Rendering dashboards/index
+Completed in 60ms (View: 58, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-12 16:11:12) [GET]
+  [4;36;1mUser Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (6.4ms)
+Completed in 28ms (View: 15, DB: 3) | 200 OK [http://localhost/users/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-12 16:11:29) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA=", "user"=>{"password_confirmation"=>"123456", "username"=>"tets_03", "password"=>"123456", "email"=>"test_03@test.com"}}
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+WARNING: Can't mass-assign these protected attributes: password_confirmation
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'test_03@test.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'tets_03') LIMIT 1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '89daf8b026a2c52d697a885bd5a1eb3532bdb12abbba656ecabee1bb1c75d6340eb560b67fa3689e624b86de61a910813420564a58617f0d4165631c2e30fd0f') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (7.5ms)
+Completed in 181ms (View: 9, DB: 2) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-12 16:11:38) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA=", "user"=>{"password_confirmation"=>"qwerty", "username"=>"tets_03", "password"=>"qwerty", "email"=>"test_03@test.com"}}
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+WARNING: Can't mass-assign these protected attributes: password_confirmation
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'test_03@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'tets_03') LIMIT 1[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '291b58aed8617fa251034491a4f6a90017249a9794160be8d9a03fa93ce9a9e5f4a948f69b7833f28b921fa747f4a6ea8184b09495ef39eb406bc2c283f51b0e') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (8.0ms)
+Completed in 28ms (View: 10, DB: 2) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardsController#index (for 127.0.0.1 at 2009-12-12 16:15:07) [GET]
+Rendering template within layouts/application
+Rendering dashboards/index
+Completed in 76ms (View: 74, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-12 16:15:09) [GET]
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (6.7ms)
+Completed in 27ms (View: 16, DB: 2) | 200 OK [http://localhost/users/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-12 16:15:27) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA=", "user"=>{"password_confirmation"=>"123456", "username"=>"test_01", "password"=>"123456", "email"=>"test_01@test.com"}}
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'test_01@test.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'test_01') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '3bee3e9689d1bc314a8515da1c0cc31710f3061d30710c0beabd72250b591a35c703a536312e47e223e5d0ccac857c1468b81cfd27a257eb8e57331a208500bc') LIMIT 1[0m
+  [4;35;1mUser Create (8.9ms)[0m   [0mINSERT INTO `users` (`created_at`, `crypted_password`, `updated_at`, `username`, `password_salt`, `persistence_token`, `email`) VALUES('2009-12-12 22:15:27', '3fb2631766c73cd3399ed96af7a8ff28d2c08e3ca21f9a86943b42e72b95e50d3a90c9e46e7883986ce3807103d102f4d1fb6ea08c170ffbc2247c288e3ed4a9', '2009-12-12 22:15:27', 'test_01', 'ISyRdO2sw9DIGqdAxQmq', '3bee3e9689d1bc314a8515da1c0cc31710f3061d30710c0beabd72250b591a35c703a536312e47e223e5d0ccac857c1468b81cfd27a257eb8e57331a208500bc', 'test_01@test.com')[0m
+  [4;36;1mSQL (53.2ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 233ms (DB: 64) | 302 Found [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardsController#index (for 127.0.0.1 at 2009-12-12 16:15:27) [GET]
+Rendering template within layouts/application
+Rendering dashboards/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-12 16:15:35) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, and update):
+  
+
+Rendering rescues/layout (not_found)
