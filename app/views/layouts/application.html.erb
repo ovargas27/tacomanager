@@ -9,9 +9,14 @@
 </head>
 <body>
 
-<div id="user_nav">
-  <%= link_to "Register", new_user_path %> |
-  <%= link_to "Login", login_path %>
+<div id="user_nav">  
+  <% if current_user %>
+    <span>Hi <%= current_user.username %></span>
+    <%= link_to "Logout", logout_path %> |
+  <% else %>
+    <%= link_to "Login", login_path %> |
+  <% end %>
+  <%= link_to "Register new user", new_user_path %>
 </div>
 
 <p style="color: red"><%= flash[:notice] %></p>
