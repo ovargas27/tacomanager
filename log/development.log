@@ -1179,3 +1179,60 @@ Processing UserSessionsController#create (for 127.0.0.1 at 2009-12-12 17:06:18) 
 Rendering template within layouts/application
 Rendering user_sessions/new
 Completed in 27ms (View: 8, DB: 1) | 200 OK [http://localhost/user_sessions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-12 17:13:54) [GET]
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 33ms (View: 7, DB: 1) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (3.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-12-12 17:14:01) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"modcloth@modcloth.com", "password"=>"modint_5%"}, "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA="}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'modcloth@modcloth.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 29ms (View: 11, DB: 5) | 200 OK [http://localhost/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-12-12 17:14:38) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"modcloth@modcloth.com", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA=", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'modcloth@modcloth.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 27ms (View: 8, DB: 1) | 200 OK [http://localhost/user_sessions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-12-12 17:14:56) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"test_01@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA=", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'test_01@test.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 96ms (View: 9, DB: 1) | 200 OK [http://localhost/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-12-12 17:15:07) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"test_01", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"k1DQzesOuTKM/uknNTyMidJiC5PiCe+K73PurHNhxSA=", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'test_01') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 23ms (DB: 1) | 302 Found [http://localhost/user_sessions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardsController#index (for 127.0.0.1 at 2009-12-12 17:15:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboards"}
+Rendering template within layouts/application
+Rendering dashboards/index
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 26ms (View: 22, DB: 1) | 200 OK [http://localhost/]

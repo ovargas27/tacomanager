@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_user, :only => [:edit, :update, :show]
 
   def index
     @users = User.find(:all)
@@ -19,11 +20,9 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated user."
       redirect_to root_url
@@ -33,8 +32,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])    
   end
 
+protected
+  
+  def require_user
+    @user = User.find(params[:id])
+  end
 
 end
