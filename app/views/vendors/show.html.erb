@@ -1,0 +1,20 @@
+<h1>Vendor</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @vendor.name %>
+</p>
+<p>
+  <strong>Phone:</strong>
+  <%=h @vendor.phone %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @vendor.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_vendor_path(@vendor) %> |
+  <%= link_to "Destroy", @vendor, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", vendors_path %>
+</p>

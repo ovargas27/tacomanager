@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :load_user, :only => [:edit, :update, :show]
   before_filter :require_user, :only => [:edit, :update, :show]
+
 
   def index
     @users = User.find(:all)
@@ -36,7 +38,7 @@ class UsersController < ApplicationController
 
 protected
   
-  def require_user
+  def load_user
     @user = User.find(params[:id])
   end
 
