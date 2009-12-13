@@ -36,7 +36,7 @@ class VendorsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+ 
   def destroy
     @vendor = Vendor.find(params[:id])
     @vendor.destroy

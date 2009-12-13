@@ -14,7 +14,7 @@
   </p>
   <p>
     <%= f.label :vendor_id %><br />
-    <%= f.text_field :vendor_id %>
+    <%= select("product", "vendor_id", @vendors.collect {|vendor| [ vendor.name, vendor.id ] }, { :include_blank => true }) %>
   </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>

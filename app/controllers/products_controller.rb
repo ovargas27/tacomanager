@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
   before_filter :require_user
+  before_filter :load_product, :only => [:show, :edit, :destroy]
+  before_filter :load_vendors, :only => [:new, :edit]
 
   def index
     @products = Product.all
   end
   
   def show
-    @product = Product.find(params[:id])
   end
   
   def new
@@ -24,7 +25,6 @@ class ProductsController < ApplicationController
   end
   
   def edit
-    @product = Product.find(params[:id])
   end
   
   def update
@@ -38,9 +38,19 @@ class ProductsController < ApplicationController
   end
   
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     flash[:notice] = "Successfully destroyed product."
     redirect_to products_url
   end
+
+private
+
+  def load_product
+    @product = Product.find(params[:id])
+  end
+
+  def load_vendors
+    @vendors = Vendor.find(:all)
+  end
+
 end

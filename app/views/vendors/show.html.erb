@@ -12,6 +12,10 @@
   <strong>Description:</strong>
   <%=h @vendor.description %>
 </p>
+<p>
+  <strong>Products:</strong>
+  <ul><%= @vendor.products.collect {|product| "<li>#{product.name}</li>"}%></ul>
+</p>
 
 <p>
   <%= link_to "Edit", edit_vendor_path(@vendor) %> |
