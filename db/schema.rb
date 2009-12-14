@@ -9,7 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091212234543) do
+ActiveRecord::Schema.define(:version => 20091213211543) do
+
+  create_table "orders", :force => true do |t|
+    t.integer  "sub_total",     :limit => 10, :precision => 10, :scale => 0
+    t.integer  "total",         :limit => 10, :precision => 10, :scale => 0
+    t.integer  "shipping_cost", :limit => 10, :precision => 10, :scale => 0
+    t.string   "state"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders_products", :id => false, :force => true do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+  end
 
   create_table "products", :force => true do |t|
     t.string   "name"

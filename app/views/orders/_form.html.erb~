@@ -1,0 +1,28 @@
+<% form_for @order do |f| %>
+  <%= f.error_messages %>
+<p>
+  <strong>Products:</strong><br /> 
+  <% @products.each do |product|%>
+  <%= check_box_tag('products[]', product.id.to_s) %>
+  <%= f.label product.name %><br /> 
+  <% end %>
+</p>
+  <p>
+    <%= f.label :sub_total %><br />
+    <%= f.text_field :sub_total %>
+  </p>
+  <p>
+    <%= f.label :total %><br />
+    <%= f.text_field :total %>
+  </p>
+  <p>
+    <%= f.label :shipping_cost %><br />
+    <%= f.text_field :shipping_cost %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+
+  <p><%= f.submit "Submit" %></p>
+<% end %>

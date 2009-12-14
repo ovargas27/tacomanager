@@ -1,4 +1,4 @@
 class Product < ActiveRecord::Base
   belongs_to :vendor
-  attr_accessible :name, :description, :price, :vendor_id
+  has_and_belongs_to_many :orders
 end

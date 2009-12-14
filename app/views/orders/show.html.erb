@@ -1,0 +1,31 @@
+<h1>Order</h1>
+<p>
+  <strong>Products:</strong>
+  <ul><%= @order.products.collect {|product| "<li>#{product.name}</li>"}%></ul>
+</p>
+<p>
+  <strong>Sub Total:</strong>
+  <%=h @order.sub_total %>
+</p>
+<p>
+  <strong>Total:</strong>
+  <%=h @order.total %>
+</p>
+<p>
+  <strong>Shipping Cost:</strong>
+  <%=h @order.shipping_cost %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%=h @order.state %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=h @order.user_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_order_path(@order) %> |
+  <%= link_to "Destroy", @order, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", orders_path %>
+</p>

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_filter :require_user
-  before_filter :load_product, :only => [:show, :edit, :destroy]
+  before_filter :load_product, :only => [:show, :edit, :update, :destroy]
   before_filter :load_vendors, :only => [:new, :edit]
 
   def index
@@ -28,7 +28,6 @@ class ProductsController < ApplicationController
   end
   
   def update
-    @product = Product.find(params[:id])
     if @product.update_attributes(params[:product])
       flash[:notice] = "Successfully updated product."
       redirect_to @product
