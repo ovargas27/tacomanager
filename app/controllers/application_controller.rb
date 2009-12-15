@@ -25,6 +25,15 @@ private
     end
   end
 
+  def require_admin
+    unless current_user.is_admin?
+      store_location
+      flash[:notice] = "You must be administrator to access this page"
+      redirect_to root_url
+      return false
+    end
+  end
+
   def store_location
     session[:return_to] = request.request_uri
   end

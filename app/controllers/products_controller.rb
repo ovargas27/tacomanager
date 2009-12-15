@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :require_admin
   before_filter :require_user
   before_filter :load_product, :only => [:show, :edit, :update, :destroy]
   before_filter :load_vendors, :only => [:new, :edit]

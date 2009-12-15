@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_filter :require_user
   before_filter :load_order, :only => [:show, :edit, :update, :destroy]
+  before_filter :require_admin, :only => [:index]
 
   def index
     @orders = Order.all
@@ -48,6 +49,9 @@ debugger
 private
   def load_order
     @order = Order.find(params[:id])
+  end
+
+  def require_be_owner
   end
 
 end
