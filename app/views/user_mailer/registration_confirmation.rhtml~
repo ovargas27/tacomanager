@@ -1,0 +1,1 @@
+Hi <%= @user.name %>, thank you for your registration in pre-alpha version of "tacomanager "
