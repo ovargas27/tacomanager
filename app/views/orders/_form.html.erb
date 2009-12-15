@@ -2,29 +2,21 @@
   <%= f.error_messages %>
 <p>
   <strong>Products:</strong><br /> 
-  <% @order.products.each do |product|%>
-  <% checked = "yes" unless @order.id.nil?%>
-  <%= check_box_tag('products[]', product.id.to_s, checked ) %>
-  <%= f.label product.name %><br /> 
+  <% @products.each do |product|%>
+  <% checked = "yes" if product.quantity > 0%>
+  <%= check_box_tag("products[#{product.id.to_s}][product_id]", product.product_id.to_s, checked ) %>
+  <%= f.label product.product.name %>
+  <%= text_field_tag "products[#{product.id.to_s}][quantity]", product.quantity %><br /> 
+
   <% end %>
 </p>
-  <p>
-    <%= f.label :sub_total %><br />
-    <%=h @order.sub_total %>
-  </p>
-  <p>
-    <%= f.label :total %><br />
-    <%=h @order.total %>
-  </p>
-  <p>
-    <%= f.label :shipping_cost %><br />
-    <%=h @order.shipping_cost %>
-  </p>
+
   <p>
     <%= f.label :state %><br />
     <% if @order.id.nil? %>
     <%= select("order", "state", ["pending", "paid"]) %>
     <% else %>
+    <%= select("order", "state", ["pending", "paid"], :selected =>  @order.state) %>
     <%=h  @order.state %>
     <% end %>    
   </p>

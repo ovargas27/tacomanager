@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
-  before_filter :require_user
-  before_filter :load_order, :only => [:show, :edit, :update, :destroy]
+  before_filter :require_user, :only => [:show, :edit, :update, :destroy]
   before_filter :require_admin, :only => [:index]
+  before_filter :load_order, :only => [:new, :show, :edit, :update, :destroy]
+  before_filter :load_random_vendor, :only => [:new, :edit]
+  before_filter :load_products, :only =>[:new, :edit ]
 
   def index
     @orders = Order.all
@@ -11,8 +13,7 @@ class OrdersController < ApplicationController
   end
   
   def new
-    @order = Order.new
-    @order.products = Product.find(:all, :conditions => ["vendor_id = ?", 1])
+    
   end
   
   def create
@@ -29,10 +30,8 @@ class OrdersController < ApplicationController
   def edit
   end
   
-  def update
-debugger
-    @order.products = Product.find(params[:products])
-    if @order.update_attributes(params[:order])
+  def update   
+    if @order.update_order(params)
       flash[:notice] = "Successfully updated order."
       redirect_to @order
     else
@@ -48,7 +47,32 @@ debugger
 
 private
   def load_order
-    @order = Order.find(params[:id])
+    if params.nil? or params[:id].nil?
+      @order = Order.new
+    else
+      @order = Order.find(params[:id])
+    end
+  end
+
+  def load_products
+    @products = []
+    vendor_products = @vendor.products
+    order_product_ids = []
+    vendor_product_ids = []
+    order_product_ids = @order.product_in_orders.collect(&:product_id) unless @order.product_in_orders.empty?
+    vendor_product_ids = vendor_products.collect(&:id)
+    vendor_product_ids -= order_product_ids
+    @order.product_in_orders.each do |product|
+      @products << ProductInOrder.new(:product_id => product.product_id, :quantity => product.quantity )
+    end
+    vendor_product_ids.each do |product_id|
+      @products << ProductInOrder.new(:product_id => product_id, :quantity => 0 )
+    end
+  end
+
+  def load_random_vendor
+    # vendor_id = rand(Vendor.count)
+    @vendor = Vendor.find(1)
   end
 
   def require_be_owner

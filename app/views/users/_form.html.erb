@@ -2,7 +2,6 @@
   <%= f.error_messages %>
     <p>
     <%= f.label :username %><br />
-    <% debugger %>
     <% if @user.id.nil? %>
       <%= f.text_field :username %>
     <% else %>

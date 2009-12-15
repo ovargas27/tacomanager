@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :vendor
-  has_and_belongs_to_many :orders
+  has_many :product_in_orders
+  has_many :orders, :through => :product_in_orders
+
 end

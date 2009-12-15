@@ -1,17 +1,32 @@
 class Order < ActiveRecord::Base
   belongs_to :user  
-  has_and_belongs_to_many :products  
+  has_many :product_in_orders
+  has_many :products, :through => :product_in_orders
+  
 
   def self.new_order(params) 
-debugger
-    products = Product.find(params[:products])
-    params[:order][:sub_total] = products.collect(&:price).sum
-    params[:order][:shipping_cost] = 10
-    params[:order][:total] =  params[:order][:sub_total] +  params[:order][:shipping_cost]
     order = Order.new(params[:order])
-    order.products = products
+    Order.save_order(order, params)
+  end
+
+  def update_order(params)  
+    Order.save_order(self, params)    
+  end
+
+  def self.save_order(order, params)
+    params_products = params[:products].collect{ |p| p unless p.nil? }
+    params_products.delete_if {|i| i.nil? or i[:product_id].nil? }      
+    
+    order.product_in_orders.clear
+    params_products.each do |param|
+      order.product_in_orders << order.product_in_orders.new(param)
+    end
+
+    order.sub_total = order.product_in_orders.collect{ |product| product.quantity * product.product.price}.sum
+    order.shipping_cost = 1
+    order.total = order.sub_total + order.shipping_cost
+    order.state = params[:order][:state]
     order.save
-debugger
     order
   end
 end
