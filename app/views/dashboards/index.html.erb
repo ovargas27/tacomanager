@@ -1,4 +1,26 @@
 <h1> Admin  Dashboards </h1>
 
-TODO: implement the dashboard
+<table border = "1">
+  <tr>
+    <th>User</th>
+    <th>Products</th>
+    <th>Sub Total</th>
+    <th>Shipping Cost</th>
+    <th>Total</th>
+    <th>State</th>
+  </tr>
+  <% for order in @orders %>
+    <tr>
+      <td><%=h order.user.username %></td>
+      <td><ul><%= order.product_in_orders.collect {|product| "<li>#{product.product.name} (#{product.quantity}) </li>"}%></ul></td>
+      <td><%=h order.sub_total %></td>
+      <td><%=h order.shipping_cost %></td>
+      <td><%=h order.total %></td>
+      <td><%=h order.state %></td>
+      <td><%= link_to "Show", order %></td>
+      <td><%= link_to "Edit", edit_order_path(order) %></td>
+      <td><%= link_to "Destroy", order, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
 
