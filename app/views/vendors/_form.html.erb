@@ -16,5 +16,9 @@
   <strong>Products:</strong>
   <ul><%= @vendor.products.collect {|product| "<li>#{product.name}</li>"}%></ul>
 </p>
+<p>
+  <%= f.label :shipping_cost %><br />
+  <%= f.text_field :shipping_cost %>
+</p>
   <p><%= f.submit "Submit" %></p>
 <% end %>

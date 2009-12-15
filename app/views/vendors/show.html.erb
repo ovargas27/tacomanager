@@ -16,7 +16,10 @@
   <strong>Products:</strong>
   <ul><%= @vendor.products.collect {|product| "<li>#{product.name}</li>"}%></ul>
 </p>
-
+<p>
+  <strong>Shipping Cost:</strong>
+  <%=h @vendor.shipping_cost %>
+</p>
 <p>
   <%= link_to "Edit", edit_vendor_path(@vendor) %> |
   <%= link_to "Destroy", @vendor, :confirm => 'Are you sure?', :method => :delete %> |

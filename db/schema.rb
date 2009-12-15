@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091213211543) do
+ActiveRecord::Schema.define(:version => 20091215010216) do
 
   create_table "orders", :force => true do |t|
     t.integer  "sub_total",     :limit => 10, :precision => 10, :scale => 0
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20091213211543) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "shipping_cost", :limit => 10, :precision => 10, :scale => 0
   end
 
 end
