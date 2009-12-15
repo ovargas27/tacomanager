@@ -14,12 +14,15 @@
     <span>Hi <%= current_user.username %></span>
     <%= link_to "Logout", logout_path %>
   <% else %>
-    <%= link_to "Login", login_path %>
+    <%= link_to "Login", login_path %> |
+    <%= link_to "Register", new_user_path %>
   <% end %>
 </div>
 <div id="top_menu">  
   <% if current_user %>
+    <%= link_to "Home", root_path %> |
     <%= link_to "New Order", new_order_path %>
+    
       <% if current_user.is_admin? %>
       | <%= link_to "Users", users_path %>
       | <%= link_to "Products", products_path %>
