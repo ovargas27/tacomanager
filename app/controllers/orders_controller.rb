@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_filter :require_user, :only => [:show, :edit, :update, :destroy]
   before_filter :require_admin, :only => [:index]
   before_filter :load_order, :only => [:new, :show, :edit, :update, :destroy]
+  before_filter :require_be_owner, :only => [:edit, :update, :destroy]
   before_filter :load_random_vendor, :only => [:new, :edit]
   before_filter :load_products, :only =>[:new, :edit ]
 
@@ -76,6 +77,12 @@ private
   end
 
   def require_be_owner
+    unless current_user.is_admin? or current_user.id == @order.user.id
+      store_location
+      flash[:notice] = "You must be the order owner to access this page"
+      redirect_to root_url
+      return false
+    end
   end
 
 end
