@@ -2,7 +2,11 @@ class Order < ActiveRecord::Base
   belongs_to :user  
   has_many :product_in_orders
   has_many :products, :through => :product_in_orders
-  
+
+  validates_numericality_of :subtotal
+  validates_numericality_of :total
+  validates_numericality_of :shipping_cost
+  validates_presence_of :user
 
   def self.new_order(params) 
     order = Order.new(params[:order])

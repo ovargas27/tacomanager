@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_filter :require_admin
   before_filter :require_user
   before_filter :load_product, :only => [:show, :edit, :update, :destroy]
-  before_filter :load_vendors, :only => [:new, :edit]
+  before_filter :load_vendors, :only => [:new, :create, :edit]
 
   def index
     @products = Product.all
@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   end
   
   def new
+    debugger
     @product = Product.new
   end
   
