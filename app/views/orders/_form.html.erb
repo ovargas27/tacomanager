@@ -4,10 +4,9 @@
   <strong>Products:</strong><br /> 
   <% @products.each do |product|%>
   <% checked = "yes" if product.quantity > 0%>
-  <%= check_box_tag("products[#{product.id.to_s}][product_id]", product.product_id.to_s, checked ) %>
+  <%= check_box_tag("products[#{product.product_id.to_s}][product_id]", product.product_id.to_s, checked ) %>
   <%= f.label product.product.name %>
-  <%= text_field_tag "products[#{product.id.to_s}][quantity]", product.quantity %><br /> 
-
+  <%= text_field_tag "products[#{product.product_id.to_s}][quantity]", product.quantity %><br /> 
   <% end %>
 </p>
 

@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_filter :require_user, :only => [:show, :edit, :update, :destroy]
   before_filter :require_admin, :only => [:index]
   before_filter :load_order, :only => [:new, :show, :edit, :update, :destroy]
-  before_filter :require_be_owner, :only => [:edit, :update, :destroy]
+  before_filter :require_be_owner, :only => [:show, :edit, :update, :destroy]
   before_filter :load_random_vendor, :only => [:new, :edit]
   before_filter :load_products, :only =>[:new, :edit ]
 

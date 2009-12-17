@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
   end
   
   def new
-    debugger
     @product = Product.new
   end
   

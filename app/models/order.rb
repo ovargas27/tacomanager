@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   has_many :product_in_orders
   has_many :products, :through => :product_in_orders
 
-  validates_numericality_of :subtotal
+  validates_numericality_of :sub_total
   validates_numericality_of :total
   validates_numericality_of :shipping_cost
   validates_presence_of :user
@@ -19,8 +19,9 @@ class Order < ActiveRecord::Base
 
   def self.save_order(order, params)
     params_products = params[:products].collect{ |p| p unless p.nil? }
-    params_products.delete_if {|i| i.nil? or i[:product_id].nil? }      
-    
+    params_products.delete_if {|i| i.nil? or i[1][:product_id].nil? }      
+    params_products = params_products.collect{ |p| p[1] unless p[1].nil? }
+
     order.product_in_orders.clear
     params_products.each do |param|
       order.product_in_orders << order.product_in_orders.new(param)

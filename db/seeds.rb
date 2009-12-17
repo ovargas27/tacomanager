@@ -8,3 +8,6 @@
 User.create(:username => 'admin', :password => 'administrator', :password_confirmation => 'administrator', :email => 'taco.manager@gmail.com')
 admin = User.find_by_username('admin')
 UserPrivilege.create(:user_id => admin.id, :privilege => 'Admin')
+Vendor.create(:name => 'Bacteria', :phone => '000-0000', :description => 'tortas', :shipping_cost => '1' )
+bacte = Vendor.find_by_name('Bacteria')
+Product.create(:name => 'Bacte-Torta', :description => 'Torta de carne', :price => '24.0', :vendor => bacte)
