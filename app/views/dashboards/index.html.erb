@@ -1,6 +1,6 @@
-<h1> Admin  Dashboards </h1>
+<h1> Dashboard </h1>
 
-<table border = "1">
+<table class = "orders_list" id = "orders_list">
   <tr>
     <th>User</th>
     <th>Products</th>
@@ -8,9 +8,12 @@
     <th>Shipping Cost</th>
     <th>Total</th>
     <th>State</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
   <% for order in @orders %>
-    <tr>
+    <tr class = "<%= cycle('odd', 'even')%>">
       <td><%=h order.user.username %></td>
       <td><ul><%= order.product_in_orders.collect {|product| "<li>#{product.product.name} (#{product.quantity}) </li>"}%></ul></td>
       <td><%=h order.sub_total %></td>

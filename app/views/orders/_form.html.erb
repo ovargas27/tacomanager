@@ -1,24 +1,27 @@
+<div class = "container" id = "order">
 <% form_for @order do |f| %>
   <%= f.error_messages %>
-<p>
+<div class = "box" id = "product_details">
   <strong>Products:</strong><br /> 
   <% @products.each do |product|%>
-  <% checked = "yes" if product.quantity > 0%>
+  <% checked = 'yes' if product.quantity > 0%>
   <%= check_box_tag("products[#{product.product_id.to_s}][product_id]", product.product_id.to_s, checked ) %>
   <%= f.label product.product.name %>
-  <%= text_field_tag "products[#{product.product_id.to_s}][quantity]", product.quantity %><br /> 
+  <%= select("products[#{product.product_id.to_s}]", "quantity", @quantities.collect{ |q| q.to_s }, :selected =>  product.quantity.to_s || '0' ) %>
+  <br />
   <% end %>
-</p>
+</div>
 
-  <p>
-    <%= f.label :state %><br />
-    <% if @order.id.nil? %>
-    <%= select("order", "state", ["pending", "paid"]) %>
-    <% else %>
-    <%= select("order", "state", ["pending", "paid"], :selected =>  @order.state) %>
-    <%=h  @order.state %>
-    <% end %>    
-  </p>
+<div id = "order_details">
+  <strong>State</strong><br />
+  <% if current_user.is_admin? %>
+  <%= select('order', 'state', ['pending', 'paid']) %>
+  <% else %>
+  <%= hidden_field :order, :state %>
+  <%=h  @order.state %>
+  <% end %>    
 
-  <p><%= f.submit "Submit" %></p>
+<div id = "order_buttons"><%= f.submit "Submit" %></div>
 <% end %>
+</div>
+</div>

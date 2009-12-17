@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
   end
   
   def create
+debugger
     params[:order][:user_id] = current_user.id   
     @order = Order.new_order(params)
     if @order
@@ -49,7 +50,7 @@ class OrdersController < ApplicationController
 private
   def load_order
     if params.nil? or params[:id].nil?
-      @order = Order.new
+      @order = Order.new(:state => 'pending')
     else
       @order = Order.find(params[:id])
     end
@@ -68,6 +69,10 @@ private
     end
     vendor_product_ids.each do |product_id|
       @products << ProductInOrder.new(:product_id => product_id, :quantity => 0 )
+    end
+    @quantities = []
+    19.times do |i|
+      @quantities << i +1
     end
   end
 
