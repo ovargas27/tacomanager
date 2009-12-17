@@ -13,9 +13,9 @@
 </div>
 
 <div id = "order_details">
-  <strong>State</strong><br />
+  <strong>State: </strong>
   <% if current_user.is_admin? %>
-  <%= select('order', 'state', ['pending', 'paid']) %>
+  <%= select('order', 'state', ['pending', 'paid', 'done']) %>
   <% else %>
   <%= hidden_field :order, :state %>
   <%=h  @order.state %>

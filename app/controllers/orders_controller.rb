@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
   end
   
   def create
-debugger
     params[:order][:user_id] = current_user.id   
     @order = Order.new_order(params)
     if @order

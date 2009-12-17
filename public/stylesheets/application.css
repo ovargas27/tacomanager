@@ -10,16 +10,16 @@ h1 { text-align: center;}
 #user_nav { float: right; }
 #user_menu { float: left; }
 #app_notice {
-    display: none;
-    border-style: solid;
+    border-style: none;
     border-color: red; 
     background-color: #dddddd;
+    text-align: center;
     color: #EE4444
 }
 #errorExplanation{
     border-style: solid;
     border-color: red; 
-   background-color: #cccccc;
+    background-color: #cccccc;
 }
 #main_container {
     width: 100%;
@@ -27,6 +27,7 @@ h1 { text-align: center;}
     display: block;
     color: black;
 }
+#total{ float: center;}
 
 div.container {
     border-style: solid;
@@ -56,3 +57,8 @@ table th {
 
 tr.even { background-color: #cecece;}
 
+tr.table_foot{ 
+    background-color: #dedede; 
+    font-weight: bold;
+    font-size: 14px;
+}

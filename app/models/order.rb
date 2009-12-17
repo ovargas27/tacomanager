@@ -18,12 +18,9 @@ class Order < ActiveRecord::Base
   end
 
   def self.save_order(order, params)
-    begin
-debugger
     params_products = params[:products].collect{ |p| p unless p.nil? }
     params_products.delete_if {|i| i.nil? or i[1][:product_id].nil? }      
     params_products = params_products.collect{ |p| p[1] unless p[1].nil? }
-debugger
     order.product_in_orders.clear
     params_products.each do |param|
       order.product_in_orders << order.product_in_orders.new(param)
@@ -34,10 +31,6 @@ debugger
     order.total = order.sub_total + order.shipping_cost
     order.state = params[:order][:state]
     order.save
-rescue => e
-      debugger
-      test = e.message
-end
     order
   end
 end
