@@ -1,0 +1,19 @@
+Hi <%= @user.username %>,
+
+This is the orders list for tacomanager.
+
+============================================
+<% @orders.each do |order|%>
+   <%=h order.user.username %> 
+   <%= order.product_in_orders.collect {|product| "<li>#{product.product.name} (#{product.quantity}) </li>"}%>
+   <%=h order.sub_total %> |
+   <%=h order.shipping_cost %> |
+   <%=h order.total %> |
+   <%=h order.state %>
+--------------------------------------------
+<% end %>
+============================================
+
+Good luck
+
+Taco Manager Team
