@@ -21,6 +21,7 @@ class DashboardsController < ApplicationController
     # send email with orders to money person
   end
 
+
   private
 
   def get_random_users()
