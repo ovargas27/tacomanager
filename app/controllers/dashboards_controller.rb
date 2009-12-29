@@ -6,7 +6,6 @@ class DashboardsController < ApplicationController
     @total = @orders.collect{|order| order.total}.sum
   end
   
-<<<<<<< HEAD:app/controllers/dashboards_controller.rb
   def start
     @phone_person, @money_person = get_random_users
     @phone_person.
@@ -21,22 +20,6 @@ class DashboardsController < ApplicationController
     # send email with orders to phone person
     # send email with orders to money person
   end
-=======
-#   def start
-#     @phone_person, @money_person = get_random_users
-#     @phone_person.set_phone_provileges
-#     @money_person.set_money_provileges
-# #     UserMailer.deliver_phone_person_advise(@phone_person)    
-# #     UserMailer.deliver_money_person_advise(@money_person)
-#   end
-
-#   def stop
-#     @phone_person.set_normal_provileges
-#     @money_person.set_normal_provileges
-# #     UserMailer.daily_orders_report(@phone_person, @orders)    
-# #     UserMailer.daily_orders_report(@money_person, @orders)
-#   end
->>>>>>> Add the money person and phone person:app/controllers/dashboards_controller.rb
 
   private
 
