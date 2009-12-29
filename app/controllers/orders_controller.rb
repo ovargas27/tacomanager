@@ -77,7 +77,7 @@ private
 
   def load_random_vendor
     # vendor_id = rand(Vendor.count)
-    @vendor = Vendor.find(1)
+    @vendor = Vendor.find(2)
   end
 
   def require_be_owner
