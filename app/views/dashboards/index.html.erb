@@ -1,15 +1,18 @@
 <h1> Dashboard </h1>
 
-<!-- <table > -->
-<!--   <tr> -->
-<!--     <th>Phone person</th> -->
-<!--     <th>Money person</th> -->
-<!--   </tr> -->
-<!--   <tr> -->
-<!--     <td><%= @phone_person %></td> -->
-<!--     <td><%= @money_person %></td> -->
-<!--   </tr> -->
-<!-- </table> -->
+
+<%= link_to "Start", start_url%> |
+<%= link_to "Stop", stop_url%>
+<table >
+  <tr>
+    <th>Phone person</th>
+    <th>Money person</th>
+  </tr>
+  <tr>
+    <td><%= @phone_person.username %></td>
+    <td><%= @money_person.username %></td>
+  </tr>
+</table>
 
 <table class = "orders_list" id = "orders_list">
   <tr>

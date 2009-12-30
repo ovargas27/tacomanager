@@ -15,15 +15,15 @@ class User < ActiveRecord::Base
   end
 
   def set_phone_provileges
-    self.privilege = 'phone_person'
+#    self.privilege = 'phone_person'
   end
   
   def set_money_provileges
-    self.privilege = 'money_person'
+#    self.privilege = 'money_person'
   end
   
   def set_normal_provileges
-    self.privilege = 'normal'
+#    self.privilege = 'normal'
   end
 
 end
