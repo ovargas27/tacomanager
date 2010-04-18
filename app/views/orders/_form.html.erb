@@ -2,6 +2,7 @@
 <% form_for @order do |f| %>
   <%= f.error_messages %>
 <div class = "box" id = "product_details">
+  <p><strong><%= @vendor.name.humanize %></strong><br /> </p>
   <strong>Products:</strong><br /> 
   <% @products.each do |product|%>
   <% checked = 'yes' if product.quantity > 0%>
