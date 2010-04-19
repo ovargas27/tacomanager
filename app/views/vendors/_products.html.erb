@@ -1,0 +1,24 @@
+<h2>Products of <span><%= vendor.name %> </span></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% for product in products %>
+    <% form_for product do |f| %>
+    <tr>
+      <td><%= f.text_field :name %></td>
+      <td><%= f.text_field :description %></td>
+      <td><%= f.text_field :price %></td>
+      <td><%= f.submit 'Update' %></td>
+      <td><%= link_to "Show", product %></td>
+      <td><%= link_to "Destroy", product, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>

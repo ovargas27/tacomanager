@@ -12,10 +12,11 @@
   <strong>Description:</strong>
   <%=h @vendor.description %>
 </p>
+
 <p>
-  <strong>Products:</strong>
-  <ul><%= @vendor.products.collect {|product| "<li>#{product.name}</li>"}%></ul>
+  <%= render :partial => 'products', :locals => { :vendor => @vendor, :products => @vendor.products } %>
 </p>
+
 <p>
   <strong>Shipping Cost:</strong>
   <%=h @vendor.shipping_cost %>
