@@ -1,8 +1,0 @@
-<% title "Edit Vendor" %>
-
-<%= render :partial => 'form' %>
-
-<p>
-  <%= link_to "Show", @vendor %> |
-  <%= link_to "View All", vendors_path %>
-</p>

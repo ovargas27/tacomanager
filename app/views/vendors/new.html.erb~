@@ -1,5 +1,0 @@
-<% title "New Vendor" %>
-
-<%= render :partial => 'form' %>
-
-<p><%= link_to "Back to List", vendors_path %></p>
