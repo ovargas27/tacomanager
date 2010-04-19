@@ -27,5 +27,5 @@ config.action_mailer.smtp_settings = {
   :domain => "localhost.localdomain",
   :authentication => :plain,
   :user_name => "taco.manager",
-  :password => "tacomanager2009"
+  :password => "rac123456"
 }

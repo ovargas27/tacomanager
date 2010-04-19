@@ -1,0 +1,3 @@
+[submodule "enum_fu"]
+	path = enum_fu
+	url = git://github.com/ikspres/enum_fu.git

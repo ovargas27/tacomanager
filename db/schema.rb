@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091215031017) do
+ActiveRecord::Schema.define(:version => 20100418235555) do
 
   create_table "orders", :force => true do |t|
     t.integer  "sub_total"
@@ -58,7 +58,11 @@ ActiveRecord::Schema.define(:version => 20091215031017) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "perishable_token",  :default => "", :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
 
   create_table "vendors", :force => true do |t|
     t.string   "name"

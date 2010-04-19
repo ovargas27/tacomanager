@@ -26,6 +26,12 @@ class UserMailer < ActionMailer::Base
     subject     "the orders for today"
     body        :user => user, :orders => orders
   end
-
   
+  def password_reset_instructions(user)  
+    recipients  user.email
+    from        "tacomanager@gmail.com"
+    subject     "Password Reset Instructions"  
+    body        :edit_password_reset_url => url_for( :host => 'localhost:3000', :controller => 'password_resets', :action => 'edit', :id =>user.perishable_token )
+  end  
+
 end

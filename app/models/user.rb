@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
     false
   end
 
+  def deliver_password_reset_instructions!  
+    reset_perishable_token!  
+    UserMailer.deliver_password_reset_instructions(self)  
+  end
+
   def set_phone_provileges
 #    self.privilege = 'phone_person'
   end
