@@ -1,0 +1,28 @@
+<div class = "container" id = "order">
+  <p>
+   <%= @user.errors unless @user.errors.empty?  %> 
+  </p>
+  <%= form_for @user do |f| %>
+    <p>
+    <%= f.label :username %><br />
+    <% if @user.id.nil? %>
+      <%= f.text_field :username %>
+    <% else %>
+      <%=h @user.username %>
+    <% end %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+</div>

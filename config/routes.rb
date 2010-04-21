@@ -1,4 +1,16 @@
 Tacomanager::Application.routes.draw do |map|
+  get "dashboard/index"
+
+  map.resources :users
+  map.login "login", :controller =>"user_sessions", :action => "new"
+  map.logout "logout", :controller =>"user_sessions", :action => "destroy"
+
+  map.resources :user_sessions
+  map.resources :users
+  map.resources :password_resets
+  map.root :controller => "user_sessions", :action => "new"
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

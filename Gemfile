@@ -8,7 +8,11 @@ gem 'rails', '3.0.0.beta3'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # Authologic gem from source
-gem 'authlogic', :git => 'http://github.com/binarylogic/authlogic.git'
+gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "rails3"
+
+gem "ruby-debug"
+# Plugin to Allow error_message_on to work when symbols are given to form_for
+#gem "dynamic_form", :git => "git://github.com/rails/dynamic_form.git"
 
 # Use unicorn as the web server
 # gem 'unicorn'
