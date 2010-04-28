@@ -16,13 +16,14 @@ class ProductsController < ApplicationController
   end
   
   def create
-    @product = Product.new(params[:product])
-    if @product.save
-      flash[:notice] = "Successfully created product."
-      redirect_to @product
-    else
-      render :action => 'new'
-    end
+    @msg = "this is a test of create vendor"
+    #@product = Product.new(params[:product])
+    #if @product.save
+      #flash[:notice] = "Successfully created product."
+      #redirect_to @product
+    #else
+      #render :action => 'new'
+    #end
   end
   
   def edit

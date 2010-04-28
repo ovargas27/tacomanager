@@ -1,7 +1,8 @@
 class DashboardsController < ApplicationController
   before_filter :load_daily_orders, :only => [:index, :start]
   def index
-    
+    @phone_person = User.find_by_email('taco.manager@gmail.com')
+    @money_person = @phone_person 
   end
   
   def start

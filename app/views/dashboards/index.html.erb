@@ -1,12 +1,13 @@
 <h1> Dashboard </h1>
 
-
-<%= link_to "Start", start_url%> |
-<%= link_to "Stop", stop_url%>
 <table >
   <tr>
     <th>Phone person</th>
     <th>Money person</th>
+  </tr>
+  <tr>
+    <td><%= @phone_person.username %> </td>
+    <td><%= @money_person.username%> </td>
   </tr>
 </table>
 

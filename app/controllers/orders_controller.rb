@@ -7,7 +7,10 @@ class OrdersController < ApplicationController
   before_filter :load_products, :only =>[:new, :edit ]
 
   def index
-    @orders = Order.all
+    today_start = Time.zone.now.strftime("%Y-%m-%d") + " 00:00:00" 
+    today_end = Time.zone.now.strftime("%Y-%m-%d") + " 23:59:59" 
+    @orders = Order.find(:all, :conditions => ["(created_at >= '#{today_start}' AND created_at <= '#{today_end}' )"])
+    @total = @orders.collect{|order| order.total}.sum    
   end
   
   def show
@@ -77,7 +80,7 @@ private
 
   def load_random_vendor
     # vendor_id = rand(Vendor.count)
-    @vendor = Vendor.find(2)
+    @vendor = Vendor.find(1)
   end
 
   def require_be_owner
